@@ -1,27 +1,55 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Rajmani Kushwaha, Horrible iOS Developer</title>
-		<!-- link to main stylesheet -->
-		<link rel="stylesheet" type="text/css" href="/css/main.css">
+		<title>Rajmani Kushwaha - iOS Developer</title>
+		<!-- Tailwind CSS -->
+		<script src="https://cdn.tailwindcss.com"></script>
+		<!-- Custom CSS for background image -->
+		<style>
+			.hero-bg {
+				background-image: url('/images/fotis-fotopoulos-6sAl6aQ4OWI-unsplash.jpg');
+				background-size: cover;
+				background-position: center;
+			}
+		</style>
 	</head>
-	<body>
-		<nav>
-    		<ul>
-        		<li><a href="/">Home</a></li>
-    		</ul>
+	<body class="bg-gray-50">
+		<!-- Navigation -->
+		<nav class="bg-white shadow-md sticky top-0 z-50">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<ul class="flex space-x-8 py-4">
+					<li><a href="/" class="text-gray-700 hover:text-gray-900 font-semibold transition duration-200">Home</a></li>
+				</ul>
+			</div>
 		</nav>
-		<div class="container">
-    		<div class="blurb">
-        		<h1>Hi there, I'm Rajmani Kushwaha!</h1>
-				<p>I'm a Software Engineer at <a href="https://github.com/tokopedia">Tokopedia</a> and contribute in the iOS application.</p>
-    		</div><!-- /.blurb -->
-		</div><!-- /.container -->
-		<footer>
-    		<ul>
-        		<li><a href="mailto:rajmanikush@gmail.com">email</a></li>
-        		<li><a href="https://github.com/rajmanikush">github.com/rajmanikush</a></li>
-			</ul>
+		
+		<!-- Hero Section with Background Image -->
+		<div class="hero-bg relative h-[500px] flex items-center justify-center">
+			<div class="absolute inset-0 bg-black bg-opacity-50"></div>
+			<div class="relative z-10 text-center text-white px-4">
+				<h1 class="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">Rajmani Kushwaha</h1>
+				<p class="text-xl md:text-2xl font-light drop-shadow-md">Software Engineer @ Tokopedia</p>
+			</div>
+		</div>
+		
+		<!-- Overview Section -->
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+			<section class="bg-white rounded-lg shadow-lg p-8">
+				<h2 class="text-4xl font-bold text-gray-800 mb-6">Overview</h2>
+				<p class="text-lg text-gray-600 leading-relaxed">
+					I'm a Software Engineer at <a href="https://github.com/tokopedia" class="text-blue-600 hover:text-blue-800 underline transition duration-200">Tokopedia</a> and contribute to the iOS application. I specialize in building robust and scalable mobile applications with a focus on user experience and performance.
+				</p>
+			</section>
+		</div>
+		
+		<!-- Footer -->
+		<footer class="bg-gray-800 text-white mt-16">
+			<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+				<ul class="flex flex-wrap justify-center space-x-6">
+					<li><a href="mailto:rajmanikush@gmail.com" class="hover:text-blue-400 transition duration-200">email</a></li>
+					<li><a href="https://github.com/rajmanikush" class="hover:text-blue-400 transition duration-200">github.com/rajmanikush</a></li>
+				</ul>
+			</div>
 		</footer>
 	</body>
 </html>
