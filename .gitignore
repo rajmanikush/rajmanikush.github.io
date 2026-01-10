@@ -1,1 +1,29 @@
+# Jekyll build output
 _site/
+
+# Bundler / RubyGems
+.bundle/
+vendor/bundle/
+
+# Jekyll cache / metadata
+.jekyll-cache/
+.jekyll-metadata
+
+# Sass / temp
+.sass-cache/
+
+# OS / editor files
+.DS_Store
+.vscode/
+.idea/
+
+# Logs, temp files
+log/
+tmp/
+
+# Environment files
+.env
+
+# Ignore Ruby version manager state (if present locally)
+.rbenv-version
+.ruby-version
