@@ -71,7 +71,7 @@ window.addEventListener('scroll', () => {
 // ── Nav Active State ──
 // Uses IntersectionObserver to detect which section is in view,
 // then adds .active to the matching desktop nav link.
-const sections = document.querySelectorAll('#overview, #experience, #skills, #portfolio, #contact');
+const sections = document.querySelectorAll('#overview, #experience, #skills, #portfolio, #resume, #contact');
 const navLinks = document.querySelectorAll('.nav-link');
 
 // Map each section ID to its corresponding nav link
