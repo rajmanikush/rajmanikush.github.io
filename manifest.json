@@ -1,0 +1,16 @@
+{
+  "name": "Rajmani Kushwaha - Senior Software Engineer",
+  "short_name": "Rajmani K",
+  "description": "Portfolio of Rajmani Kushwaha, Senior Software Engineer at Target. 10+ years building iOS apps for 200M+ users.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#030712",
+  "theme_color": "#2563EB",
+  "icons": [
+    {
+      "src": "/images/Rajmani-Kushwaha.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    }
+  ]
+}
