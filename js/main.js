@@ -1,3 +1,29 @@
+// ── Dark Mode Toggle ──
+const themeToggle = document.getElementById('theme-toggle');
+const sunIcon = document.getElementById('theme-sun');
+const moonIcon = document.getElementById('theme-moon');
+
+function syncToggleIcons() {
+	const isDark = document.documentElement.classList.contains('dark');
+	sunIcon.classList.toggle('hidden', !isDark);
+	moonIcon.classList.toggle('hidden', isDark);
+}
+syncToggleIcons();
+
+themeToggle.addEventListener('click', () => {
+	const isDark = document.documentElement.classList.toggle('dark');
+	localStorage.setItem('theme', isDark ? 'dark' : 'light');
+	syncToggleIcons();
+});
+
+// Sync with system preference changes when no stored preference
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+	if (!localStorage.getItem('theme')) {
+		document.documentElement.classList.toggle('dark', e.matches);
+		syncToggleIcons();
+	}
+});
+
 // Mobile Menu Toggle
 const mobileMenuButton = document.getElementById('mobile-menu-button');
 const mobileMenu = document.getElementById('mobile-menu');
