@@ -63,6 +63,9 @@
 .nav-link.active {
 	color: #2563EB;
 }
+.dark .nav-link.active {
+	color: #60a5fa;
+}
 .nav-link.active::after {
 	width: 100%;
 	left: 0;
