@@ -95,8 +95,10 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ── Nav Active State ──
-// Uses IntersectionObserver to detect which section is in view,
-// then adds .active to the matching desktop nav link.
+// Uses getBoundingClientRect on each scroll to find the section whose top
+// has most recently crossed the nav trigger line. Iterating in DOM order and
+// keeping the last match means we always highlight the section the user is
+// currently reading, even when multiple sections are partially in view.
 const sections = document.querySelectorAll('#overview, #experience, #skills, #portfolio, #resume, #contact');
 const navLinks = document.querySelectorAll('.nav-link');
 
@@ -107,50 +109,34 @@ navLinks.forEach(link => {
 	navMap[id] = link;
 });
 
-// Track which sections are currently intersecting
-const activeSections = new Set();
-
 function updateActiveNav() {
-	// At the bottom of the page, activate the last section (Contact)
-	const atBottom = (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 50;
-	if (atBottom && activeSections.size > 0) {
+	// At the very bottom of the page, activate the last section (Contact)
+	// even if its top hasn't crossed the trigger line (short footer edge case).
+	const atBottom = (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 4;
+	if (atBottom) {
 		navLinks.forEach(link => link.classList.remove('active'));
-		// Pick the last section in DOM order that's intersecting
-		const lastSection = Array.from(sections).reverse().find(s => activeSections.has(s.id));
-		if (lastSection && navMap[lastSection.id]) {
-			navMap[lastSection.id].classList.add('active');
-		}
+		const lastSection = sections[sections.length - 1];
+		if (navMap[lastSection.id]) navMap[lastSection.id].classList.add('active');
 		return;
 	}
 
-	// Otherwise, pick the topmost visible section (first in DOM order)
+	// Trigger line: just below the sticky nav (~80px tall) plus a small buffer
+	const triggerPoint = 100;
+	let active = null;
+
+	// Walk sections in DOM order; the last one whose top is at/above the
+	// trigger line is the one currently being viewed.
 	for (const section of sections) {
-		if (activeSections.has(section.id)) {
-			navLinks.forEach(link => link.classList.remove('active'));
-			if (navMap[section.id]) {
-				navMap[section.id].classList.add('active');
-			}
-			return;
+		if (section.getBoundingClientRect().top <= triggerPoint) {
+			active = section;
 		}
 	}
-	// If no section is intersecting (e.g. at very top), clear all
+
 	navLinks.forEach(link => link.classList.remove('active'));
+	if (active && navMap[active.id]) {
+		navMap[active.id].classList.add('active');
+	}
 }
 
-const navObserver = new IntersectionObserver((entries) => {
-	entries.forEach(entry => {
-		if (entry.isIntersecting) {
-			activeSections.add(entry.target.id);
-		} else {
-			activeSections.delete(entry.target.id);
-		}
-	});
-	updateActiveNav();
-}, {
-	// rootMargin: negative top pulls the trigger zone down from the nav bar,
-	// negative bottom ensures only the section near the top of viewport wins
-	rootMargin: '-80px 0px -35% 0px',
-	threshold: 0
-});
-
-sections.forEach(section => navObserver.observe(section));
+// Run once on load to set active state for direct links (e.g. #skills)
+updateActiveNav();
