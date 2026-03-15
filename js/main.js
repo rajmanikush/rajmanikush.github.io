@@ -110,6 +110,16 @@ navLinks.forEach(link => {
 });
 
 function updateActiveNav() {
+	// At the very bottom of the page, activate the last section (Contact)
+	// even if its top hasn't crossed the trigger line (short footer edge case).
+	const atBottom = (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 4;
+	if (atBottom) {
+		navLinks.forEach(link => link.classList.remove('active'));
+		const lastSection = sections[sections.length - 1];
+		if (navMap[lastSection.id]) navMap[lastSection.id].classList.add('active');
+		return;
+	}
+
 	// Trigger line: just below the sticky nav (~80px tall) plus a small buffer
 	const triggerPoint = 100;
 	let active = null;
