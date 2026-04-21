@@ -119,3 +119,53 @@
 
 /* figcaption inside post body inherits dark text */
 .dark .post-body figcaption { color: #9ca3af; }
+
+/* ── Tables ── */
+.post-body table {
+  width: 100%;
+  border-collapse: collapse !important;
+  margin: 1.75rem 0;
+  font-size: 0.95rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.dark .post-body table {
+  border-color: #374151;
+}
+.post-body th {
+  background-color: #f3f4f6 !important;
+  color: #111827;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.65rem 1rem;
+  border-bottom-width: 2px !important;
+  border-bottom-style: solid !important;
+  border-bottom-color: #d1d5db !important;
+}
+.dark .post-body th {
+  background-color: #1f2937 !important;
+  color: #f9fafb;
+  border-bottom-color: #4b5563 !important;
+}
+.post-body td {
+  padding: 0.6rem 1rem;
+  border-bottom-width: 1px !important;
+  border-bottom-style: solid !important;
+  border-bottom-color: #e5e7eb !important;
+  color: #374151;
+  vertical-align: top;
+}
+.dark .post-body td {
+  border-bottom-color: #374151 !important;
+  color: #d1d5db;
+}
+.post-body tr:last-child td {
+  border-bottom-width: 0 !important;
+}
+.post-body tbody tr:hover td {
+  background-color: #f9fafb;
+}
+.dark .post-body tbody tr:hover td {
+  background-color: #111827;
+}
