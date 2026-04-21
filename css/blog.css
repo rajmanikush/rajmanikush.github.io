@@ -208,3 +208,63 @@
 .dark .post-body tbody tr:hover td {
   background-color: #111827;
 }
+
+/* ── Like button ── */
+.like-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: 2px solid #e5e7eb !important;
+  border-radius: 50%;
+  width: 72px;
+  height: 72px;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.15s;
+  color: #9ca3af;
+  padding: 0;
+  justify-content: center;
+}
+.dark .like-btn {
+  border-color: #374151 !important;
+  color: #6b7280;
+}
+.like-btn:hover {
+  border-color: #f43f5e !important;
+  color: #f43f5e;
+  transform: scale(1.06);
+}
+.like-btn.liked {
+  border-color: #f43f5e !important;
+  color: #f43f5e;
+}
+.like-btn.liked .like-icon {
+  fill: #f43f5e;
+}
+.like-btn:not(.liked) .like-icon {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+.like-icon {
+  width: 28px;
+  height: 28px;
+  transition: fill 0.2s, stroke 0.2s;
+}
+.like-count {
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* pop animation on click */
+@keyframes like-pop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.25); }
+  70%  { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+.like-btn.popping {
+  animation: like-pop 0.35s ease;
+}
