@@ -1,0 +1,32 @@
+{% assign img_size = include.size | default: 'full' %}
+{% if img_size == 'small' %}
+  {% assign img_max_width = '380px' %}
+{% elsif img_size == 'medium' %}
+  {% assign img_max_width = '640px' %}
+{% elsif img_size == 'large' %}
+  {% assign img_max_width = '900px' %}
+{% else %}
+  {% assign img_max_width = '100%' %}
+{% endif %}
+
+<figure class="my-8" style="max-width: {{ img_max_width }}; {% if img_size != 'full' %}margin-left: auto; margin-right: auto;{% endif %}">
+  <img
+    src="{{ include.src }}"
+    alt="{{ include.alt }}"
+    style="width: 100%; border-radius: 8px; display: block; box-shadow: 0 4px 16px rgba(0,0,0,0.12);"
+    loading="lazy">
+  {% if include.caption or include.credit %}
+  <figcaption style="margin-top: 0.5rem; text-align: center; font-size: 0.85rem; font-style: italic; color: #6b7280;">
+    {% if include.caption %}{{ include.caption }}{% endif %}
+    {% if include.caption and include.credit %} — {% endif %}
+    {% if include.credit %}
+      Photo by
+      {% if include.credit_url %}
+        <a href="{{ include.credit_url }}" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">{{ include.credit }}</a>
+      {% else %}
+        {{ include.credit }}
+      {% endif %}
+    {% endif %}
+  </figcaption>
+  {% endif %}
+</figure>

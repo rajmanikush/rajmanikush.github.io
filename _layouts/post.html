@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <!-- Dark mode: apply theme before paint to prevent FOUC -->
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} — Rajmani Kushwaha</title>
+  <meta name="description" content="{{ page.description | default: page.excerpt | strip_html | truncate: 160 }}">
+  <meta name="author" content="Rajmani Kushwaha">
+  <link rel="canonical" href="https://rajmanikush.com{{ page.url }}">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://rajmanikush.com{{ page.url }}">
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="{{ page.description | default: page.excerpt | strip_html | truncate: 160 }}">
+  <meta property="og:image" content="https://rajmanikush.com{{ page.cover_image | default: '/images/Rajmani-Kushwaha.jpeg' }}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.title }}">
+  <meta name="twitter:description" content="{{ page.description | default: page.excerpt | strip_html | truncate: 160 }}">
+  <meta name="twitter:image" content="https://rajmanikush.com{{ page.cover_image | default: '/images/Rajmani-Kushwaha.jpeg' }}">
+
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          typography: {
+            DEFAULT: {
+              css: {
+                maxWidth: 'none',
+              }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="icon" href="/images/Rajmani-Kushwaha.jpeg" type="image/jpeg">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/blog.css">
+  <link rel="stylesheet" type="text/css" href="/css/syntax.css">
+</head>
+<body class="bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
+
+  <!-- Navigation (context-aware: anchors link back to homepage) -->
+  {% assign is_home = false %}
+  {% if page.url == '/' %}{% assign is_home = true %}{% endif %}
+  <nav class="bg-white dark:bg-gray-900 bg-opacity-95 dark:bg-opacity-95 shadow-md dark:shadow-gray-900/50 sticky top-0 z-50 backdrop-blur-sm transition-colors duration-300">
+    <div id="scroll-progress" class="scroll-progress"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <a href="/" class="flex items-center group" aria-label="Home">
+          <img src="/images/Rajmani-Kushwaha.jpeg" alt="Rajmani Kushwaha" width="48" height="48"
+            class="w-12 h-12 rounded-full object-cover shadow-lg transform group-hover:scale-110 transition duration-300 ring-2 ring-blue-500">
+        </a>
+
+        <!-- Desktop Menu -->
+        <ul class="hidden md:flex space-x-8">
+          <li><a href="/#overview"   class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition duration-200">Overview</a></li>
+          <li><a href="/#experience" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition duration-200">Experience</a></li>
+          <li><a href="/#skills"     class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition duration-200">Skills</a></li>
+          <li><a href="/#portfolio"  class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition duration-200">Portfolio</a></li>
+          <li><a href="/#resume"     class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition duration-200">Resume</a></li>
+          <li><a href="/blog"        class="nav-link text-blue-600 dark:text-blue-400 font-medium transition duration-200">Blog</a></li>
+          <li><a href="/#contact"    class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition duration-200">Contact</a></li>
+        </ul>
+
+        <!-- Right controls -->
+        <div class="flex items-center gap-2">
+          <button id="theme-toggle" class="flex items-center justify-center w-9 h-9 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-200 focus:outline-none" aria-label="Toggle dark mode">
+            <svg id="theme-sun" class="hidden w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+            <svg id="theme-moon" class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+          </button>
+          <button id="mobile-menu-button" class="md:hidden text-gray-700 dark:text-gray-300 hover:text-blue-600 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4">
+        <ul class="space-y-2">
+          <li><a href="/#overview"   class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 rounded transition duration-200">Overview</a></li>
+          <li><a href="/#experience" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 rounded transition duration-200">Experience</a></li>
+          <li><a href="/#skills"     class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 rounded transition duration-200">Skills</a></li>
+          <li><a href="/#portfolio"  class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 rounded transition duration-200">Portfolio</a></li>
+          <li><a href="/#resume"     class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 rounded transition duration-200">Resume</a></li>
+          <li><a href="/blog"        class="block px-4 py-2 text-blue-600 dark:text-blue-400 font-medium hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded transition duration-200">Blog</a></li>
+          <li><a href="/#contact"    class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 rounded transition duration-200">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Breadcrumb -->
+    <nav class="mb-8 text-sm text-gray-500 dark:text-gray-400" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200">Home</a>
+      <span class="mx-2">›</span>
+      <a href="/blog" class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200">Blog</a>
+      <span class="mx-2">›</span>
+      <span class="text-gray-700 dark:text-gray-300">{{ page.title }}</span>
+    </nav>
+
+    <article>
+      <!-- Post Header -->
+      <header class="mb-10">
+        <!-- Tags -->
+        {% if page.tags and page.tags.size > 0 %}
+        <div class="flex flex-wrap gap-2 mb-4">
+          {% for tag in page.tags %}
+          <span class="px-3 py-1 text-xs font-semibold rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-4">{{ page.title }}</h1>
+
+        {% if page.description %}
+        <p class="text-xl text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">{{ page.description }}</p>
+        {% endif %}
+
+        <!-- Meta row: date + reading time -->
+        <div class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700 pb-6">
+          <time datetime="{{ page.date | date: '%Y-%m-%d' }}">
+            {{ page.date | date: "%B %-d, %Y" }}
+          </time>
+          <span>·</span>
+          {% assign words = content | number_of_words %}
+          {% assign reading_time = words | divided_by: 200 | plus: 1 %}
+          <span>{{ reading_time }} min read</span>
+        </div>
+      </header>
+
+      <!-- Post Body -->
+      <div class="post-body">
+        {{ content }}
+      </div>
+
+      <!-- Post Footer -->
+      <footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+        {% if page.tags and page.tags.size > 0 %}
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="text-sm text-gray-500 dark:text-gray-400 self-center">Tagged:</span>
+          {% for tag in page.tags %}
+          <span class="px-3 py-1 text-xs font-semibold rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+        <a href="/blog" class="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition duration-200">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          All posts
+        </a>
+      </footer>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  {% include footer.html %}
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/blog.js" defer></script>
+</body>
+</html>
