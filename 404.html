@@ -1,0 +1,49 @@
+---
+permalink: /404.html
+---
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found — Rajmani Kushwaha</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <link rel="icon" href="/images/Rajmani-Kushwaha.jpeg" type="image/jpeg">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
+
+  {% include nav.html %}
+
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+    <p class="text-8xl font-black text-blue-500 dark:text-blue-400 leading-none mb-4">404</p>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Page not found</h1>
+    <p class="text-gray-500 dark:text-gray-400 mb-10 max-w-sm mx-auto">
+      The page you're looking for doesn't exist or has been moved.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <a href="/" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition duration-200">
+        Go home
+      </a>
+      <a href="/blog" class="px-6 py-3 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium rounded-lg transition duration-200">
+        Read the blog
+      </a>
+    </div>
+  </main>
+
+  {% include footer.html %}
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>
