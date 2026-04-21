@@ -1,3 +1,28 @@
+// Sync Giscus iframe theme with site dark mode toggle
+function setGiscusTheme(theme) {
+  const iframe = document.querySelector('iframe.giscus-frame');
+  if (iframe) {
+    iframe.contentWindow.postMessage(
+      { giscus: { setConfig: { theme } } },
+      'https://giscus.app'
+    );
+  }
+}
+
+// Set initial Giscus theme and watch for changes
+(function () {
+  const isDark = () => document.documentElement.classList.contains('dark');
+
+  // Update theme attribute on the script tag before Giscus loads
+  const script = document.querySelector('script[data-repo="rajmanikush/rajmanikush.github.io"]');
+  if (script) script.setAttribute('data-theme', isDark() ? 'dark' : 'light');
+
+  // Watch for dark class toggle after Giscus has loaded
+  new MutationObserver(() => {
+    setGiscusTheme(isDark() ? 'dark' : 'light');
+  }).observe(document.documentElement, { attributeFilter: ['class'] });
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   // ── Copy buttons ──────────────────────────────────────────────────
   document.querySelectorAll('.post-body pre').forEach(pre => {
