@@ -1,0 +1,139 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Rajmani Kushwaha</title>
+  <meta name="description" content="Thoughts on iOS development, Swift, architecture, and engineering at scale.">
+  <meta name="author" content="Rajmani Kushwaha">
+  <link rel="canonical" href="https://rajmanikush.com/blog">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rajmanikush.com/blog">
+  <meta property="og:title" content="Blog — Rajmani Kushwaha">
+  <meta property="og:description" content="Thoughts on iOS development, Swift, architecture, and engineering at scale.">
+  <meta property="og:image" content="https://rajmanikush.com/images/Rajmani-Kushwaha.jpeg">
+
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <link rel="icon" href="/images/Rajmani-Kushwaha.jpeg" type="image/jpeg">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body class="bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
+
+  <!-- Navigation -->
+  <nav class="bg-white dark:bg-gray-900 bg-opacity-95 dark:bg-opacity-95 shadow-md dark:shadow-gray-900/50 sticky top-0 z-50 backdrop-blur-sm transition-colors duration-300">
+    <div id="scroll-progress" class="scroll-progress"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <a href="/" class="flex items-center group" aria-label="Home">
+          <img src="/images/Rajmani-Kushwaha.jpeg" alt="Rajmani Kushwaha" width="48" height="48"
+            class="w-12 h-12 rounded-full object-cover shadow-lg transform group-hover:scale-110 transition duration-300 ring-2 ring-blue-500">
+        </a>
+        <ul class="hidden md:flex space-x-8">
+          <li><a href="/#overview"   class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition duration-200">Overview</a></li>
+          <li><a href="/#experience" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition duration-200">Experience</a></li>
+          <li><a href="/#skills"     class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition duration-200">Skills</a></li>
+          <li><a href="/#portfolio"  class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition duration-200">Portfolio</a></li>
+          <li><a href="/#resume"     class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition duration-200">Resume</a></li>
+          <li><a href="/blog"        class="nav-link text-blue-600 dark:text-blue-400 font-medium transition duration-200">Blog</a></li>
+          <li><a href="/#contact"    class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition duration-200">Contact</a></li>
+        </ul>
+        <div class="flex items-center gap-2">
+          <button id="theme-toggle" class="flex items-center justify-center w-9 h-9 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-200 focus:outline-none" aria-label="Toggle dark mode">
+            <svg id="theme-sun" class="hidden w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+            <svg id="theme-moon" class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+          </button>
+          <button id="mobile-menu-button" class="md:hidden text-gray-700 dark:text-gray-300 hover:text-blue-600 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden pb-4">
+        <ul class="space-y-2">
+          <li><a href="/#overview"   class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 rounded transition duration-200">Overview</a></li>
+          <li><a href="/#experience" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 rounded transition duration-200">Experience</a></li>
+          <li><a href="/#skills"     class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 rounded transition duration-200">Skills</a></li>
+          <li><a href="/#portfolio"  class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 rounded transition duration-200">Portfolio</a></li>
+          <li><a href="/#resume"     class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 rounded transition duration-200">Resume</a></li>
+          <li><a href="/blog"        class="block px-4 py-2 text-blue-600 dark:text-blue-400 font-medium hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded transition duration-200">Blog</a></li>
+          <li><a href="/#contact"    class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 rounded transition duration-200">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+    <!-- Page Header -->
+    <header class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-3">Blog</h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400">Thoughts on iOS, Swift, architecture, and engineering at scale.</p>
+    </header>
+
+    <!-- Post List -->
+    {% if site.posts.size > 0 %}
+    <div class="space-y-8">
+      {% for post in site.posts %}
+      <article class="group bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-6 hover:shadow-lg dark:hover:shadow-gray-900/60 hover:border-blue-300 dark:hover:border-blue-700 transition duration-300">
+        <!-- Tags -->
+        {% if post.tags and post.tags.size > 0 %}
+        <div class="flex flex-wrap gap-2 mb-3">
+          {% for tag in post.tags %}
+          <span class="px-2 py-0.5 text-xs font-semibold rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition duration-200">
+          <a href="{{ post.url }}" class="stretched-link">{{ post.title }}</a>
+        </h2>
+
+        {% if post.description %}
+        <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">{{ post.description }}</p>
+        {% elsif post.excerpt %}
+        <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">{{ post.excerpt | strip_html | truncate: 160 }}</p>
+        {% endif %}
+
+        <div class="flex items-center gap-3 text-sm text-gray-400 dark:text-gray-500">
+          <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+          <span>·</span>
+          {% assign words = post.content | number_of_words %}
+          {% assign reading_time = words | divided_by: 200 | plus: 1 %}
+          <span>{{ reading_time }} min read</span>
+          <span class="ml-auto text-blue-600 dark:text-blue-400 font-medium group-hover:underline">Read →</span>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center py-24 text-gray-400 dark:text-gray-600">
+      <p class="text-lg">No posts yet. Check back soon.</p>
+    </div>
+    {% endif %}
+
+  </main>
+
+  {% include footer.html %}
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+/* ── Blog Post Body Typography ── */
+.post-body {
+  color: #374151;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+.dark .post-body {
+  color: #d1d5db;
+}
+
+.post-body h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+.dark .post-body h2 {
+  color: #f9fafb;
+  border-bottom-color: #374151;
+}
+
+.post-body h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+.dark .post-body h3 {
+  color: #e5e7eb;
+}
+
+.post-body p {
+  margin-bottom: 1.4rem;
+}
+
+.post-body a {
+  color: #2563eb;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.dark .post-body a {
+  color: #60a5fa;
+}
+.post-body a:hover {
+  color: #1d4ed8;
+}
+.dark .post-body a:hover {
+  color: #93c5fd;
+}
+
+.post-body ul,
+.post-body ol {
+  margin: 0 0 1.4rem 1.5rem;
+}
+.post-body ul { list-style-type: disc; }
+.post-body ol { list-style-type: decimal; }
+.post-body li { margin-bottom: 0.4rem; }
+
+.post-body blockquote {
+  border-left: 4px solid #2563eb;
+  margin: 1.75rem 0;
+  padding: 0.75rem 1.25rem;
+  background: #eff6ff;
+  border-radius: 0 8px 8px 0;
+  color: #1e40af;
+  font-style: italic;
+}
+.dark .post-body blockquote {
+  background: #1e3a5f33;
+  color: #93c5fd;
+  border-left-color: #3b82f6;
+}
+
+.post-body code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.875em;
+  background: #f3f4f6;
+  color: #be185d;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+.dark .post-body code {
+  background: #1f2937;
+  color: #f472b6;
+}
+
+.post-body pre {
+  background: #1f2937;
+  color: #e5e7eb;
+  padding: 1.25rem 1.5rem;
+  border-radius: 10px;
+  overflow-x: auto;
+  margin: 1.75rem 0;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+.post-body pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
+}
+
+.post-body hr {
+  border: none;
+  border-top: 2px solid #e5e7eb;
+  margin: 2.5rem 0;
+}
+.dark .post-body hr {
+  border-top-color: #374151;
+}
+
+.post-body strong { color: #111827; font-weight: 600; }
+.dark .post-body strong { color: #f9fafb; }
+
+/* figcaption inside post body inherits dark text */
+.dark .post-body figcaption { color: #9ca3af; }
