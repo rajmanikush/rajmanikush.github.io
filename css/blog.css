@@ -93,10 +93,18 @@
   color: #e5e7eb;
   padding: 1.25rem 1.5rem;
   border-radius: 10px;
-  overflow-x: auto;
+  overflow-x: hidden;
+  white-space: pre-wrap;
+  word-break: break-word;
   margin: 1.75rem 0;
   font-size: 0.9rem;
   line-height: 1.65;
+}
+/* Real code blocks (language declared): allow horizontal scroll, no wrapping */
+.post-body [class*="language-"]:not(.language-plaintext) pre {
+  overflow-x: auto;
+  white-space: pre;
+  word-break: normal;
 }
 .post-body pre code {
   background: none;

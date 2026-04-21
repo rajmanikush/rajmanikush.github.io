@@ -1,5 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.post-body pre').forEach(pre => {
+    const langWrapper = pre.closest('[class*="language-"]');
+    // language-plaintext = no language specified in the fence — skip those
+    const hasLanguage = langWrapper && !langWrapper.classList.contains('language-plaintext');
+    const isMultiLine = pre.textContent.trim().split('\n').length > 1;
+
+    if (!hasLanguage || !isMultiLine) return;
+
     const wrapper = document.createElement('div');
     wrapper.className = 'code-wrapper';
     pre.parentNode.insertBefore(wrapper, pre);
@@ -11,14 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.setAttribute('aria-label', 'Copy code to clipboard');
 
     btn.addEventListener('click', () => {
-      const code = pre.querySelector('code') || pre;
-      const text = code.textContent.trim();
-
+      const text = (pre.querySelector('code') || pre).textContent.trim();
       if (navigator.clipboard) {
         navigator.clipboard.writeText(text).then(() => showCopied(btn));
       } else {
         const range = document.createRange();
-        range.selectNodeContents(code);
+        range.selectNodeContents(pre.querySelector('code') || pre);
         window.getSelection().removeAllRanges();
         window.getSelection().addRange(range);
         document.execCommand('copy');
