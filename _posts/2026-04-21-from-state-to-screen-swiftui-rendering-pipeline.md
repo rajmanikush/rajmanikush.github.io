@@ -6,10 +6,6 @@ description: "Most SwiftUI developers know that 'state drives UI.' What they don
 tags: [ios, swiftui, performance, rendering, equatable]
 ---
 
-> *Most SwiftUI developers know that "state drives UI." What they don't know is everything that happens between those two things. I didn't either — until I started asking the right questions and running benchmarks that surprised me. What follows isn't Apple-documented internals — it's a mental model that matches observed behavior in production and benchmarks. Take it as a map, not a spec.*
-
----
-
 ## Why This Matters
 
 If you've shipped a SwiftUI app and noticed subtle jank in a long list, a screen that doesn't update when it should, or — worse — a screen that shows stale UI silently, the answer is often somewhere in the rendering pipeline. Not in your business logic. Not in your networking layer. Somewhere between "state changed" and "pixels updated."
