@@ -3,7 +3,7 @@ layout: post
 title: "SwiftUI Rendering Performance: What Nobody Tells You About the Three Layers of Cost"
 date: 2026-04-21
 description: "I thought I understood how SwiftUI optimized rendering. Turns out, I only understood one third of the picture."
-tags: [ios, swiftui, performance, swift]
+tags: [ios, swiftui, performance, rendering, equatable]
 ---
 
 > *I recently had a conversation that challenged one of my core assumptions about SwiftUI performance. I thought I understood how SwiftUI optimized rendering. Turns out, I only understood one third of the picture. This post is about all three thirds.*
