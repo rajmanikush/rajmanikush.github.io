@@ -12,14 +12,11 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: #111827;
-  margin-top: 2.5rem;
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.4rem;
-  border-bottom: 2px solid #e5e7eb;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
 }
 .dark .post-body h2 {
   color: #f9fafb;
-  border-bottom-color: #374151;
 }
 
 .post-body h3 {
@@ -115,8 +112,8 @@
 
 .post-body hr {
   border: none;
-  border-top: 2px solid #e5e7eb;
-  margin: 2.5rem 0;
+  border-top: 1px solid #e5e7eb;
+  margin: 1rem 0;
 }
 .dark .post-body hr {
   border-top-color: #374151;
