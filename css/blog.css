@@ -1,8 +1,8 @@
 /* ── Blog Post Body Typography ── */
 .post-body {
   color: #374151;
-  font-size: 1.0625rem;
-  line-height: 1.8;
+  font-size: 1.125rem;
+  line-height: 1.65;
 }
 .dark .post-body {
   color: #d1d5db;
@@ -34,7 +34,7 @@
 }
 
 .post-body p {
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.15rem;
 }
 
 .post-body a {
