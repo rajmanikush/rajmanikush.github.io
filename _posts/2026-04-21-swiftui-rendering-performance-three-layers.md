@@ -26,12 +26,6 @@ Let's walk through it completely.
 
 Before anything else, you need to internalize this:
 
-```
-Level 1: View struct instantiation      →  CHEAPEST   (structs are cheap to create)
-Level 2: body evaluation                →  MEDIUM     (your Swift code runs)
-Level 3: Render commit (CALayer/UIView) →  MOST EXPENSIVE (layout, drawing, GPU)
-```
-
 {% include image.html
    src="/images/blog/swiftui-rendering-pipeline/three-layers-of-cost.png"
    alt="The Three Layers of Cost in SwiftUI — View Struct Instantiation (cheapest), Body Evaluation (medium), Render Commit (most expensive)"
@@ -162,26 +156,6 @@ This is the step SwiftUI is best known for optimizing. And rightfully so. But it
 ---
 
 ## The Complete Pipeline
-
-```
-State changes → trigger fires (objectWillChange or @Observable tracking)
-        ↓
-ID changed?
-  YES → subtree recreated (does not reconcile with previous)
-  NO  ↓
-Marked Equatable? → SwiftUI may use == to skip subtree updates
-  equal   → subtree updates may be skipped
-  unequal ↓
-body evaluates
-        ↓
-Structural identity resolved (via body output)
-  Changed → discard subtree, recreate (expensive)
-  Same    ↓
-Output diffing
-  Same   → render commit avoided
-  Changed ↓
-Render commit → pixels update
-```
 
 {% include image.html
    src="/images/blog/swiftui-rendering-pipeline/complete-pipeline.png"
@@ -537,27 +511,27 @@ If this post sparked curiosity and you want to go deeper, these are the resource
 
 **1. WWDC 2021 — Demystify SwiftUI (Session 10022)**
 The single most important session for understanding SwiftUI's internals. Apple engineers walk through identity (explicit vs structural), lifetime, and how the dependency graph decides what to re-evaluate. Everything in this post about structural identity and view lifetime traces back to this session.
-👉 `developer.apple.com/videos/play/wwdc2021/10022`
+👉 [developer.apple.com/videos/play/wwdc2021/10022](https://developer.apple.com/videos/play/wwdc2021/10022)
 
 **2. WWDC 2023 — Discover Observation in SwiftUI (Session 10149)**
 Covers the `@Observable` macro introduced in iOS 17, which fundamentally changed how SwiftUI tracks state. Instead of observing an entire object, SwiftUI now tracks individual property access inside `body`. If you're building for iOS 17+, this changes parts of the mental model in this post — in a good way.
-👉 `developer.apple.com/videos/play/wwdc2023/10149`
+👉 [developer.apple.com/videos/play/wwdc2023/10149](https://developer.apple.com/videos/play/wwdc2023/10149)
 
 **3. WWDC 2021 — Swift Concurrency: Behind the Scenes (Session 10254)**
 Not directly SwiftUI — but if you're thinking about how `@MainActor`, `async/await`, and state updates interact with the rendering pipeline, this session gives you the foundation. Relevant as soon as your state management touches concurrency.
-👉 `developer.apple.com/videos/play/wwdc2021/10254`
+👉 [developer.apple.com/videos/play/wwdc2021/10254](https://developer.apple.com/videos/play/wwdc2021/10254)
 
 **4. Swift Evolution — SE-0395: Observation (the `@Observable` proposal)**
 The formal Swift Evolution proposal behind the `@Observable` macro. Drier than a WWDC session but more precise — explains exactly why the old `ObservableObject` / `@Published` model had limitations and how property-level observation solves them.
-👉 `github.com/apple/swift-evolution/blob/main/proposals/0395-observability.md`
+👉 [github.com/apple/swift-evolution/.../0395-observability.md](https://github.com/apple/swift-evolution/blob/main/proposals/0395-observability.md)
 
 **5. Swift Forums — SwiftUI and Observation**
 The Swift Forums have ongoing discussions where Apple engineers occasionally clarify behavior that isn't documented elsewhere. Searching "SwiftUI Equatable body evaluation" and "SwiftUI observation" surfaces threads that go beyond what's covered in official docs.
-👉 `forums.swift.org`
+👉 [forums.swift.org](https://forums.swift.org)
 
 **6. Apple Documentation — `EquatableView`**
 Short but worth reading directly. Understanding what Apple says this type does — and what it deliberately doesn't say — is informative in itself.
-👉 `developer.apple.com/documentation/swiftui/equatableview`
+👉 [developer.apple.com/documentation/swiftui/equatableview](https://developer.apple.com/documentation/swiftui/equatableview)
 
 ---
 
