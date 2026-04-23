@@ -1,0 +1,377 @@
+---
+permalink: /tokopedia/
+---
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tokopedia — Rajmani Kushwaha</title>
+  <meta name="description" content="Five years as iOS Lead Engineer at Tokopedia — building payment systems, e-Pharmacy, Apple Watch, and platform infrastructure for 100M+ users.">
+  <meta name="author" content="Rajmani Kushwaha">
+  <link rel="canonical" href="https://rajmanikush.com/tokopedia/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rajmanikush.com/tokopedia/">
+  <meta property="og:title" content="Tokopedia — Rajmani Kushwaha">
+  <meta property="og:description" content="Five years as iOS Lead Engineer at Tokopedia — building payment systems, e-Pharmacy, Apple Watch, and platform infrastructure for 100M+ users.">
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <link rel="icon" href="/images/Rajmani-Kushwaha.jpeg" type="image/jpeg">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
+
+  <!-- Nav -->
+  <nav class="bg-white dark:bg-gray-900 bg-opacity-95 dark:bg-opacity-95 shadow-md dark:shadow-gray-900/50 sticky top-0 z-50 backdrop-blur-sm transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <a href="/" class="flex items-center group" aria-label="Home">
+          <img src="/images/Rajmani-Kushwaha.jpeg" alt="Rajmani Kushwaha" width="48" height="48"
+            class="w-12 h-12 rounded-full object-cover shadow-lg transform group-hover:scale-110 transition duration-300 ring-2 ring-green-500">
+        </a>
+        <ul class="hidden md:flex space-x-8">
+          <li><a href="/" class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-medium transition duration-200">About</a></li>
+          <li><a href="/#portfolio" class="text-green-600 dark:text-green-400 font-medium transition duration-200">Portfolio</a></li>
+          <li><a href="/blog" class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-medium transition duration-200">Blog</a></li>
+          <li><a href="/#contact" class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-medium transition duration-200">Contact</a></li>
+        </ul>
+        <div class="flex items-center gap-2">
+          <button id="theme-toggle" class="flex items-center justify-center w-9 h-9 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-200 focus:outline-none" aria-label="Toggle dark mode">
+            <svg id="theme-sun" class="hidden w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            <svg id="theme-moon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+          </button>
+          <button id="mobile-menu-button" class="md:hidden text-gray-700 dark:text-gray-300 hover:text-green-600 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden pb-4">
+        <ul class="space-y-2">
+          <li><a href="/" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-green-50 dark:hover:bg-green-900/30 rounded transition duration-200">About</a></li>
+          <li><a href="/#portfolio" class="block px-4 py-2 text-green-600 dark:text-green-400 font-medium hover:bg-green-50 dark:hover:bg-green-900/30 rounded transition duration-200">Portfolio</a></li>
+          <li><a href="/blog" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-green-50 dark:hover:bg-green-900/30 rounded transition duration-200">Blog</a></li>
+          <li><a href="/#contact" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-green-50 dark:hover:bg-green-900/30 rounded transition duration-200">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+    <nav class="text-sm text-gray-500 dark:text-gray-400">
+      <a href="/" class="hover:text-green-600 dark:hover:text-green-400 transition">Home</a>
+      <span class="mx-2">›</span>
+      <a href="/#portfolio" class="hover:text-green-600 dark:hover:text-green-400 transition">Portfolio</a>
+      <span class="mx-2">›</span>
+      <span class="text-gray-700 dark:text-gray-300">Tokopedia</span>
+    </nav>
+  </div>
+
+  <!-- Hero -->
+  <header class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-14">
+    <div class="flex items-center gap-3 mb-6">
+      <span class="px-3 py-1 text-xs font-bold rounded-full bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300 uppercase tracking-wider">Case Study</span>
+      <span class="text-sm text-gray-500 dark:text-gray-400">Feb 2019 – Jun 2024</span>
+    </div>
+    <h1 class="text-4xl sm:text-5xl font-black text-gray-900 dark:text-white mb-4 leading-tight">
+      Five years building iOS for<br class="hidden sm:block"> <span class="text-green-600 dark:text-green-400">Indonesia's largest super app.</span>
+    </h1>
+    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mb-10 leading-relaxed">
+      I joined Tokopedia as a Software Engineer and grew into a Lead Engineer, owning the Payment & Fintech iOS team. Along the way I shipped features used by 100M+ users, led platform-wide architecture migrations, and built Tokopedia's first e-Pharmacy experience.
+    </p>
+
+    <!-- Stats row -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div class="bg-white dark:bg-gray-900 rounded-xl p-5 border border-gray-200 dark:border-gray-800 text-center">
+        <p class="text-3xl font-black text-green-600 dark:text-green-400">5</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Years</p>
+      </div>
+      <div class="bg-white dark:bg-gray-900 rounded-xl p-5 border border-gray-200 dark:border-gray-800 text-center">
+        <p class="text-3xl font-black text-green-600 dark:text-green-400">100M+</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Daily Users</p>
+      </div>
+      <div class="bg-white dark:bg-gray-900 rounded-xl p-5 border border-gray-200 dark:border-gray-800 text-center">
+        <p class="text-3xl font-black text-green-600 dark:text-green-400">3</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Promotions</p>
+      </div>
+      <div class="bg-white dark:bg-gray-900 rounded-xl p-5 border border-gray-200 dark:border-gray-800 text-center">
+        <p class="text-3xl font-black text-green-600 dark:text-green-400">+25%</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Fintech Revenue</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 space-y-20">
+
+    <!-- Career Arc -->
+    <section id="journey">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">The Journey</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="bg-white dark:bg-gray-900 rounded-xl p-6 border-l-4 border-green-400 border border-gray-200 dark:border-gray-800">
+          <p class="text-xs font-bold text-green-600 dark:text-green-400 uppercase tracking-widest mb-2">2019 – 2021</p>
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Software Engineer</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Built foundational product features — trade-in, brand pages, product comparison. Adopted RxSwift and MVVM. Shipped Tokopedia's first Apple Watch app, featured on the Indonesian App Store.</p>
+        </div>
+        <div class="bg-white dark:bg-gray-900 rounded-xl p-6 border-l-4 border-green-500 border border-gray-200 dark:border-gray-800">
+          <p class="text-xs font-bold text-green-600 dark:text-green-400 uppercase tracking-widest mb-2">2021 – 2023</p>
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Senior Engineer</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Moved to Payment & Fintech. Owned the universal Thank You page, built Buy Now Pay Later end-to-end, and designed the layout-driven rendering pattern adopted across the codebase. Led the Objective-C → Swift AppDelegate migration.</p>
+        </div>
+        <div class="bg-white dark:bg-gray-900 rounded-xl p-6 border-l-4 border-green-600 border border-gray-200 dark:border-gray-800">
+          <p class="text-xs font-bold text-green-600 dark:text-green-400 uppercase tracking-widest mb-2">2023 – 2024</p>
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Lead Engineer</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Led a team of 4 engineers across Payment and Travel iOS. Drove the MVVM → TCA architecture migration. Conceived and shipped Tokopedia's e-Pharmacy — the most complex initiative of my tenure.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Flagship Work -->
+    <section id="work">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">Flagship Projects</h2>
+      <div class="space-y-8">
+
+        <!-- e-Pharmacy -->
+        <div class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden">
+          <div class="bg-gradient-to-r from-green-600 to-emerald-500 px-7 py-5 flex items-center justify-between">
+            <div>
+              <span class="text-xs font-bold text-green-100 uppercase tracking-widest">Lead Initiative · 2023–2024</span>
+              <h3 class="text-xl font-bold text-white mt-1">e-Pharmacy</h3>
+            </div>
+            <span class="text-3xl">💊</span>
+          </div>
+          <div class="p-7 grid md:grid-cols-2 gap-8">
+            <div>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">Post-COVID, Tokopedia identified medicine sales as a major untapped market. I led the end-to-end iOS initiative — from business research and vendor licensing strategy through to the full purchase flow.</p>
+              <p class="text-gray-600 dark:text-gray-400">The core challenge: medicines require pharmacy vendor licensing, and many require a valid prescription. We built a catalog classifying every medicine as OTC or prescription-only, then wired up the entire compliance layer in-app.</p>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-gray-700 dark:text-gray-300 mb-3 uppercase tracking-wide">What we built</h4>
+              <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                <li class="flex gap-2"><span class="text-green-500 mt-0.5">▸</span> Medicine catalog with OTC vs. prescription classification</li>
+                <li class="flex gap-2"><span class="text-green-500 mt-0.5">▸</span> In-cart prescription flag — prompts upload when required</li>
+                <li class="flex gap-2"><span class="text-green-500 mt-0.5">▸</span> Backend OCR validation of prescription images</li>
+                <li class="flex gap-2"><span class="text-green-500 mt-0.5">▸</span> Consultation module via HelloDoc (on-call doctor, free tier)</li>
+                <li class="flex gap-2"><span class="text-green-500 mt-0.5">▸</span> Prescription-to-checkout bridge — validated script unlocks purchase</li>
+                <li class="flex gap-2"><span class="text-green-500 mt-0.5">▸</span> Vendor licensing strategy via onboarded pharmacy partners</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Buy Now Pay Later -->
+        <div class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden">
+          <div class="bg-gradient-to-r from-blue-600 to-indigo-500 px-7 py-5 flex items-center justify-between">
+            <div>
+              <span class="text-xs font-bold text-blue-100 uppercase tracking-widest">Owned End-to-End · Senior Engineer</span>
+              <h3 class="text-xl font-bold text-white mt-1">Buy Now, Pay Later</h3>
+            </div>
+            <span class="text-3xl">💳</span>
+          </div>
+          <div class="p-7 grid md:grid-cols-2 gap-8">
+            <div>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">Tokopedia had always required upfront payment. BNPL introduced deferred payment — a first for the platform — and I owned the entire iOS implementation across every entry point.</p>
+              <p class="text-gray-600 dark:text-gray-400">The feature was driven by product value, not product type: given the item price, we surface available lenders, tenures, and charges side by side so the customer can compare and choose before adding to cart.</p>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-gray-700 dark:text-gray-300 mb-3 uppercase tracking-wide">Implementation</h4>
+              <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                <li class="flex gap-2"><span class="text-blue-500 mt-0.5">▸</span> PDP widget — lender comparison, tenure options, charge breakdown</li>
+                <li class="flex gap-2"><span class="text-blue-500 mt-0.5">▸</span> Cart widget — selected BNPL option persisted through checkout</li>
+                <li class="flex gap-2"><span class="text-blue-500 mt-0.5">▸</span> Cart API extension — additional fields passed with BNPL selection</li>
+                <li class="flex gap-2"><span class="text-blue-500 mt-0.5">▸</span> Multi-provider support with sort by tenure or interest rate</li>
+              </ul>
+              <div class="mt-5 inline-flex items-center gap-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg px-4 py-2">
+                <span class="text-blue-600 dark:text-blue-400 font-black text-lg">+25%</span>
+                <span class="text-sm text-blue-700 dark:text-blue-300">fintech revenue increase</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Apple Watch -->
+        <div class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden">
+          <div class="bg-gradient-to-r from-gray-700 to-gray-900 px-7 py-5 flex items-center justify-between">
+            <div>
+              <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Self-Initiated · Software Engineer</span>
+              <h3 class="text-xl font-bold text-white mt-1">Apple Watch Extension</h3>
+            </div>
+            <span class="text-3xl">⌚</span>
+          </div>
+          <div class="p-7 grid md:grid-cols-2 gap-8">
+            <div>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">I proposed the Apple Watch idea, designed the initial UX wireframes, and built the extension end-to-end. The watch app surfaces a user's wishlist items — product name, price, and a deep link back to the main app.</p>
+              <p class="text-gray-600 dark:text-gray-400">The feature was <strong class="text-gray-800 dark:text-gray-200">featured on the Indonesian App Store</strong> — a milestone for the team.</p>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-gray-700 dark:text-gray-300 mb-3 uppercase tracking-wide">Technical challenge</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">The main app used a <strong class="text-gray-800 dark:text-gray-200">static network library</strong> to reduce compile time. Adding the Watch extension meant the static library was bundled twice — once in each target — causing significant binary size bloat.</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400">The fix: convert the network module from static to dynamic library. Both targets then shared a single copy at runtime, eliminating the duplication and bringing bundle size back under control.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Thank You Page + Layout System -->
+        <div class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden">
+          <div class="bg-gradient-to-r from-purple-600 to-pink-500 px-7 py-5 flex items-center justify-between">
+            <div>
+              <span class="text-xs font-bold text-purple-100 uppercase tracking-widest">Platform Design · Senior Engineer</span>
+              <h3 class="text-xl font-bold text-white mt-1">Universal Thank You Page & Layout-Driven Rendering</h3>
+            </div>
+            <span class="text-3xl">🧩</span>
+          </div>
+          <div class="p-7 grid md:grid-cols-2 gap-8">
+            <div>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">Every payment flow in Tokopedia — product purchase, seller wallet withdrawal, top-up, and deferred ATM payments — lands on the same terminal page. I rebuilt this as a single, signal-driven surface that adapts its layout entirely based on payment method.</p>
+              <p class="text-gray-600 dark:text-gray-400">Deferred transactions (common in Indonesian banking) show a live countdown and payment instructions. The rating engine and product recommendations were added as optional layout slots.</p>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-gray-700 dark:text-gray-300 mb-3 uppercase tracking-wide">The layout-driven pattern</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">A single API returns layout definitions for a page. A second pass fetches component data only for visible layouts — keeping payloads small and enabling streaming. If a component fails, it is hidden silently. If a layout fails, a targeted retry fetches only that layout ID.</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400">This pattern scaled beyond the Thank You page — it became the standard for brand pages, product recommendations, and every new server-driven surface we built after.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- AppDelegate Migration -->
+        <div class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden">
+          <div class="bg-gradient-to-r from-orange-500 to-amber-500 px-7 py-5 flex items-center justify-between">
+            <div>
+              <span class="text-xs font-bold text-orange-100 uppercase tracking-widest">Platform Initiative · Senior Engineer</span>
+              <h3 class="text-xl font-bold text-white mt-1">AppDelegate Decomposition & Swift Migration</h3>
+            </div>
+            <span class="text-3xl">🏗️</span>
+          </div>
+          <div class="p-7 grid md:grid-cols-2 gap-8">
+            <div>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">Tokopedia's AppDelegate was a monolith that nobody wanted to touch. Universal links, deep linking, analytics, A/B experiments, push notifications — years of accumulated responsibility in a single file. One mistake would break the app at launch.</p>
+              <p class="text-gray-600 dark:text-gray-400">I led the migration in phases: extract each responsibility into its own manager class with mirrored lifecycle methods, then make AppDelegate a pure orchestrator. Final step: rewrite in Swift.</p>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-gray-700 dark:text-gray-300 mb-3 uppercase tracking-wide">Safe rollout strategy</h4>
+              <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                <li class="flex gap-2"><span class="text-orange-500 mt-0.5">▸</span> Phase 1: Extract analytics, deep link router, A/B testing, push notifications into separate manager classes</li>
+                <li class="flex gap-2"><span class="text-orange-500 mt-0.5">▸</span> Unit tests asserting each lifecycle method is called exactly once</li>
+                <li class="flex gap-2"><span class="text-orange-500 mt-0.5">▸</span> New Swift AppDelegate shipped to beta group across 4 release cycles</li>
+                <li class="flex gap-2"><span class="text-orange-500 mt-0.5">▸</span> Production flipped only after beta validation — zero incidents</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- More Contributions -->
+    <section id="contributions">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">More Work</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <div class="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-800">
+          <span class="text-2xl mb-3 block">📱</span>
+          <h3 class="font-bold text-gray-900 dark:text-white mb-1">Device Trade-in</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Built the complete device diagnostic pipeline — Bluetooth, Wi-Fi, SIM, display grid, camera — integrated from the PDP phone section to generate instant trade-in pricing.</p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-800">
+          <span class="text-2xl mb-3 block">🏷️</span>
+          <h3 class="font-bold text-gray-900 dark:text-white mb-1">Brand Category Pages</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Samsung and Apple branded shopping experiences with hero banners, video, collapsible sections, and dynamic carousels — rendered incrementally via GraphQL layout-first API.</p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-800">
+          <span class="text-2xl mb-3 block">⚖️</span>
+          <h3 class="font-bold text-gray-900 dark:text-white mb-1">Product Comparison</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Side-by-side product comparison surface launched from the PDP. Scrollable key-value grid with fixed column structure and dynamic row count per product category.</p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-800">
+          <span class="text-2xl mb-3 block">💰</span>
+          <h3 class="font-bold text-gray-900 dark:text-white mb-1">Seller Wallet (Saldo)</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Rewrote the credit/debit card withdrawal modules for seller balance payouts. Built the T&C flow, bank minimum-amount validation, and multi-bank routing.</p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-800">
+          <span class="text-2xl mb-3 block">✈️</span>
+          <h3 class="font-bold text-gray-900 dark:text-white mb-1">Travel Platform</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">As Lead, managed the hotel and flight booking iOS team. Drove the MVVM → TCA architecture migration across the travel vertical, modernising the codebase and improving test coverage.</p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-800">
+          <span class="text-2xl mb-3 block">🔄</span>
+          <h3 class="font-bold text-gray-900 dark:text-white mb-1">React Native → Native</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Migrated React Native screens to native iOS across multiple modules, improving performance and eliminating the cross-runtime overhead for high-traffic flows.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Architecture Evolution -->
+    <section id="architecture">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Architecture Evolution</h2>
+      <p class="text-gray-600 dark:text-gray-400 mb-8">The iOS architecture at Tokopedia evolved significantly over my five years — and I was involved at each transition.</p>
+      <div class="relative">
+        <div class="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-green-400 to-green-700 hidden sm:block"></div>
+        <div class="space-y-6">
+          <div class="sm:pl-12 relative">
+            <div class="hidden sm:block absolute left-0 top-1.5 w-8 h-8 bg-green-400 rounded-full flex items-center justify-center text-white text-xs font-bold text-center leading-8">1</div>
+            <div class="bg-white dark:bg-gray-900 rounded-xl p-5 border border-gray-200 dark:border-gray-800">
+              <h3 class="font-bold text-gray-900 dark:text-white mb-1">MVVM + RxSwift + SnapKit</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Initial architecture. Reactive bindings via RxSwift, programmatic layouts with SnapKit. Writing unit tests for Rx streams was non-trivial and slowed feature delivery.</p>
+            </div>
+          </div>
+          <div class="sm:pl-12 relative">
+            <div class="hidden sm:block absolute left-0 top-1.5 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold text-center leading-8">2</div>
+            <div class="bg-white dark:bg-gray-900 rounded-xl p-5 border border-gray-200 dark:border-gray-800">
+              <h3 class="font-bold text-gray-900 dark:text-white mb-1">MVVM + Texture (AsyncDisplayKit)</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Frame rate drops and slow initial page loads on complex views triggered the move to Texture. UI kit initialisation moved to background threads; only layout commit ran on main. A significant performance win for feed and product surfaces.</p>
+            </div>
+          </div>
+          <div class="sm:pl-12 relative">
+            <div class="hidden sm:block absolute left-0 top-1.5 w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white text-xs font-bold text-center leading-8">3</div>
+            <div class="bg-white dark:bg-gray-900 rounded-xl p-5 border border-gray-200 dark:border-gray-800">
+              <h3 class="font-bold text-gray-900 dark:text-white mb-1">TCA (Composable Architecture) + RxSwift</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Point-Free's TCA uses Combine internally, but the platform team ported it to RxSwift to match the existing reactive foundation. The result was dramatically better testing ergonomics — less time writing tests, more time building features. Payment and Travel were migrated under my lead. <span class="text-green-600 dark:text-green-400 font-semibold">40% reduction in critical bugs.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section id="stack">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Stack</h2>
+      <div class="flex flex-wrap gap-2">
+        {% assign stack = "Swift,Objective-C,RxSwift,TCA,MVVM,Texture / AsyncDisplayKit,GraphQL,Moya,SnapKit,Apple Watch SDK,Unit Testing,TDD,Xcode,iOS SDK" | split: "," %}
+        {% for item in stack %}
+        <span class="px-3 py-1.5 text-sm font-medium rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">{{ item }}</span>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- Back link -->
+    <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
+      <a href="/#portfolio" class="inline-flex items-center gap-2 text-green-600 dark:text-green-400 hover:text-green-700 font-medium transition duration-200">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        Back to Portfolio
+      </a>
+    </div>
+
+  </main>
+
+  {% include footer.html %}
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>
