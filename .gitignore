@@ -27,3 +27,9 @@ tmp/
 # Ignore Ruby version manager state (if present locally)
 .rbenv-version
 .ruby-version
+
+# OG image generation templates (local dev only)
+og-preview.html
+og-swiftui-post.html
+_preview.html
+_site_test.html
