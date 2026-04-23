@@ -4,6 +4,12 @@
 <html lang="en" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8">
+		<!-- Redirect GitHub Pages to canonical domain -->
+		<script>
+			if (window.location.hostname === 'rajmanikush.github.io') {
+				window.location.replace('https://rajmanikush.com' + window.location.pathname + window.location.search + window.location.hash);
+			}
+		</script>
 		<!-- Dark mode: apply theme before paint to prevent FOUC -->
 		<script>
 			(function() {
