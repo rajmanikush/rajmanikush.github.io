@@ -23,13 +23,13 @@
   <meta property="og:url" content="https://rajmanikush.com{{ page.url }}">
   <meta property="og:title" content="{{ page.title }}">
   <meta property="og:description" content="{{ page.description | default: page.excerpt | strip_html | truncate: 160 }}">
-  <meta property="og:image" content="{% if page.og_image %}https://rajmanikush.com{{ page.og_image }}{% elsif page.cover_image %}{{ page.cover_image }}{% else %}https://rajmanikush.com/images/blog/og-default.png{% endif %}">
+  <meta property="og:image" content="{% if page.cover_image %}{{ page.cover_image }}{% else %}https://rajmanikush.com/images/Rajmani-Kushwaha.jpeg{% endif %}">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ page.title }}">
   <meta name="twitter:description" content="{{ page.description | default: page.excerpt | strip_html | truncate: 160 }}">
-  <meta name="twitter:image" content="{% if page.og_image %}https://rajmanikush.com{{ page.og_image }}{% elsif page.cover_image %}{{ page.cover_image }}{% else %}https://rajmanikush.com/images/blog/og-default.png{% endif %}">
+  <meta name="twitter:image" content="{% if page.cover_image %}{{ page.cover_image }}{% else %}https://rajmanikush.com/images/Rajmani-Kushwaha.jpeg{% endif %}">
 
   <link rel="preconnect" href="https://cdn.tailwindcss.com">
   <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">

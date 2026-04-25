@@ -8,7 +8,6 @@ cover_image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=
 cover_image_alt: "MacBook with lines of code on a busy developer desk"
 cover_image_credit: "Christopher Gower"
 cover_image_credit_url: "https://unsplash.com/@cgower"
-og_image: /images/blog/swiftui-rendering-pipeline/og-swiftui-rendering.png
 ---
 
 ## Why This Matters
