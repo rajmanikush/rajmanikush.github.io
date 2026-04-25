@@ -1,4 +1,30 @@
-name: Rajmani Kushwaha, Horrible iOS Developer
+title: "Rajmani Kushwaha — iOS Engineer"
+name: "Rajmani Kushwaha"
+description: "Senior iOS Engineer with 10+ years of experience. Writing about Swift, SwiftUI, architecture, and building at scale."
+url: "https://rajmanikush.com"
+baseurl: ""
+author: "Rajmani Kushwaha"
+
 markdown: kramdown
 highlighter: rouge
 permalink: /blog/:title/
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+# jekyll-feed config
+feed:
+  path: feed.xml
+  posts_limit: 20
+
+# Exclude local dev / tooling files from the built site
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - og-preview.html
+  - og-swiftui-post.html
+  - _preview.html
+  - _site_test.html
+  - "*.sh"

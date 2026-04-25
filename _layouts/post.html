@@ -54,6 +54,63 @@
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <link rel="stylesheet" type="text/css" href="/css/blog.css">
   <link rel="stylesheet" type="text/css" href="/css/syntax.css">
+
+  <!-- Structured Data: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": {{ page.title | jsonify }},
+    "description": {{ page.description | default: page.excerpt | strip_html | truncate: 160 | jsonify }},
+    "author": {
+      "@type": "Person",
+      "name": "Rajmani Kushwaha",
+      "url": "https://rajmanikush.com"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Rajmani Kushwaha",
+      "url": "https://rajmanikush.com"
+    },
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+    "image": "{% if page.cover_image %}{{ page.cover_image }}{% else %}https://rajmanikush.com/images/Rajmani-Kushwaha.jpeg{% endif %}",
+    "url": "https://rajmanikush.com{{ page.url }}",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://rajmanikush.com{{ page.url }}"
+    }{% if page.tags and page.tags.size > 0 %},
+    "keywords": {{ page.tags | join: ", " | jsonify }}{% endif %}
+  }
+  </script>
+
+  <!-- Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://rajmanikush.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://rajmanikush.com/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": {{ page.title | jsonify }},
+        "item": "https://rajmanikush.com{{ page.url }}"
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
 
