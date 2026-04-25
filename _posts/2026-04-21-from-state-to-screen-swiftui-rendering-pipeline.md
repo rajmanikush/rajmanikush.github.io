@@ -4,7 +4,11 @@ title: "From State to Screen: A Practical Mental Model of SwiftUI's Rendering Pi
 date: 2026-04-21
 description: "Most SwiftUI developers know that 'state drives UI.' What they don't know is everything that happens between those two things. I didn't either — until I started asking the right questions."
 tags: [ios, swiftui, performance, rendering, equatable]
-cover_image: /images/blog/swiftui-rendering-pipeline/og-swiftui-rendering.png
+cover_image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80"
+cover_image_alt: "MacBook with lines of code on a busy developer desk"
+cover_image_credit: "Christopher Gower"
+cover_image_credit_url: "https://unsplash.com/@cgower"
+og_image: /images/blog/swiftui-rendering-pipeline/og-swiftui-rendering.png
 ---
 
 ## Why This Matters
