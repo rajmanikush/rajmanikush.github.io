@@ -321,7 +321,7 @@ Each individual fix is correct. Each fix is local and makes sense in isolation. 
 
 **The strategy that actually helps:** work inward-out, not outward-in.
 
-Start from your leaf types — models, value objects, utilities with no dependencies on other custom types. These are almost always cheap to fix. Once the foundation is clean, move up:
+Start from your leaf types — models, value objects, utilities with no dependencies on other custom types. These are almost always cheap to fix. Once the foundation is clean, work outward through each layer.
 
 {% include image.html
    src="/images/blog/sendable-migration-large-codebase-mental-models/inward-out-migration-order.png"
