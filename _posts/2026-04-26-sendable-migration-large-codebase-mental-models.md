@@ -323,11 +323,11 @@ Each individual fix is correct. Each fix is local and makes sense in isolation. 
 
 Start from your leaf types — models, value objects, utilities with no dependencies on other custom types. These are almost always cheap to fix. Once the foundation is clean, move up:
 
-1. **Pure models and DTOs** — mostly free, value types, almost no work
-2. **Services and repositories** — actor migration or `@unchecked Sendable` with documented synchronization
-3. **ViewModels** — `@MainActor` is usually correct and honest for this layer
-4. **Shared protocols** — most careful decisions happen here; changes cascade
-5. **Closure callbacks** — mark `@Sendable` last; they reveal what's left
+{% include image.html
+   src="/images/blog/sendable-migration-large-codebase-mental-models/inward-out-migration-order.png"
+   alt="The Inward-Out Migration Order — concentric circles showing Models at the core, then ViewModels, Services, Feature layer, and Closures at the outermost ring"
+   size="full"
+   caption="Stabilize the core first. Let fixes naturally propagate outward." %}
 
 If you start at the ViewModel layer and work backwards, you'll chase errors in circles. The cascade runs from the inside out — your fixes should too.
 
