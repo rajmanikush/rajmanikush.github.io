@@ -242,21 +242,11 @@ Think of it as `@unchecked Sendable` scoped to a single property rather than the
 
 The danger is subtlety. `@unchecked Sendable` on a type is at least visible in the type declaration — any reviewer scanning the class will see it. `nonisolated(unsafe)` on a property can be missed. Document it. Treat it with the same caution as `@unchecked Sendable`.
 
-**The decision ladder when Sendable conformance is genuinely difficult:**
-
-```
-↓ Can the method avoid all mutable actor state?
-    → nonisolated  (clean, compiler-verified)
-
-↓ Is just one property the problem, rest of the type is clean?
-    → nonisolated(unsafe)  (targeted, manual responsibility)
-
-↓ Is the whole type manually synchronized with locks or queues?
-    → @unchecked Sendable  (document the mechanism, plan the migration)
-
-↓ None of the above?
-    → Actor migration or structural redesign
-```
+{% include image.html
+   src="/images/blog/sendable-migration-large-codebase-mental-models/decision-ladder.png"
+   alt="The decision ladder when Sendable conformance is genuinely difficult — four steps from nonisolated to actor migration"
+   size="full"
+   caption="The decision ladder when Sendable conformance is genuinely difficult" %}
 
 ---
 
