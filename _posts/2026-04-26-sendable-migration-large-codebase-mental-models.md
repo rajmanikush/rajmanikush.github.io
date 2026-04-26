@@ -325,7 +325,7 @@ Start from your leaf types — models, value objects, utilities with no dependen
 
 {% include image.html
    src="/images/blog/sendable-migration-large-codebase-mental-models/inward-out-migration-order.png"
-   alt="The Inward-Out Migration Order — concentric circles showing Models at the core, then ViewModels, Services, Feature layer, and Closures at the outermost ring"
+   alt="The Inward-Out Migration Order — concentric circles showing Models / DTOs at the core, then Shared Protocols, Services / Repositories, ViewModels, Feature / Use Case Layer, and Closures at the outermost ring"
    size="full"
    caption="Stabilize the core first. Let fixes naturally propagate outward." %}
 
