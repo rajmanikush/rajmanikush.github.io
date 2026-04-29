@@ -105,8 +105,9 @@ const navLinks = document.querySelectorAll('.nav-link');
 // Map each section ID to its corresponding nav link
 const navMap = {};
 navLinks.forEach(link => {
-	const id = link.getAttribute('href').substring(1); // strip the #
-	navMap[id] = link;
+	const href = link.getAttribute('href');
+	const hash = href.includes('#') ? href.split('#')[1] : null;
+	if (hash) navMap[hash] = link;
 });
 
 function updateActiveNav() {
