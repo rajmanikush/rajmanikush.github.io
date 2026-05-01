@@ -4,10 +4,10 @@ title: "Actor Isolation in Swift 6 — @preconcurrency Is Not a Migration Strate
 date: 2026-05-01
 description: "Most Swift 6 migration guides focus on fixing compiler errors. This one is about the bugs that compile cleanly, pass CI, and still break your app in production."
 tags: [ios, swift, concurrency, actor-isolation, swift6]
-cover_image: "https://images.unsplash.com/photo-1744274800188-4f3159c408cf?auto=format&fit=crop&w=1200&q=80"
-cover_image_alt: "Abstract curved black lines creating separated geometric boundaries"
-cover_image_credit: "Pawel Czerwinski"
-cover_image_credit_url: "https://unsplash.com/@pawel_czerwinski"
+cover_image: "https://images.unsplash.com/photo-1752080036656-167ab2f7ff02?auto=format&fit=crop&w=1200&q=80"
+cover_image_alt: "Colorful lines forming a geometric pattern"
+cover_image_credit: "Logan Voss"
+cover_image_credit_url: "https://unsplash.com/@loganvoss"
 ---
 
 ## Where We Left Off
