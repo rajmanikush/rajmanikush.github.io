@@ -12,7 +12,7 @@ cover_image_credit_url: "https://unsplash.com/@loganvoss"
 
 ## Where We Left Off
 
-In the previous post, we covered `Sendable` — the Swift 6 mechanism that checks whether **data** can safely cross isolation boundaries.
+In the [previous post](https://rajmanikush.com/blog/sendable-migration-large-codebase-mental-models/), we covered `Sendable` — the Swift 6 mechanism that checks whether **data** can safely cross isolation boundaries.
 
 But there's a second layer to Swift 6 strict concurrency that's less talked about and, in my experience, more dangerous: **actor isolation** — which checks whether **code** is running in the right context.
 
