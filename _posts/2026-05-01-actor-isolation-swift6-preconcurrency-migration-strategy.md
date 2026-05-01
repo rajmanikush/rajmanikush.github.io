@@ -10,10 +10,6 @@ cover_image_credit: "Pawel Czerwinski"
 cover_image_credit_url: "https://unsplash.com/@pawel_czerwinski"
 ---
 
-> *Most Swift 6 migration guides focus on fixing compiler errors. This one is about the bugs that compile cleanly, pass CI, and still break your app in production. If your migration strategy is "make the compiler green," you will ship bugs like this.*
-
----
-
 ## Where We Left Off
 
 In the previous post, we covered `Sendable` — the Swift 6 mechanism that checks whether **data** can safely cross isolation boundaries.
