@@ -4,6 +4,10 @@ title: "Actor Isolation in Swift 6 — @preconcurrency Is Not a Migration Strate
 date: 2026-05-01
 description: "Most Swift 6 migration guides focus on fixing compiler errors. This one is about the bugs that compile cleanly, pass CI, and still break your app in production."
 tags: [ios, swift, concurrency, actor-isolation, swift6]
+cover_image: "https://images.unsplash.com/photo-1744274800188-4f3159c408cf?auto=format&fit=crop&w=1200&q=80"
+cover_image_alt: "Abstract curved black lines creating separated geometric boundaries"
+cover_image_credit: "Pawel Czerwinski"
+cover_image_credit_url: "https://unsplash.com/@pawel_czerwinski"
 ---
 
 > *Most Swift 6 migration guides focus on fixing compiler errors. This one is about the bugs that compile cleanly, pass CI, and still break your app in production. If your migration strategy is "make the compiler green," you will ship bugs like this.*
@@ -213,9 +217,10 @@ func loadItems() {
     let id = store.selectedId // ⛔ store is a custom actor — synchronous cross-boundary access
 }
 
-// The fix — explicit boundary crossing
+// ✅ Correct fix — keep @MainActor, make the boundary crossing explicit
+@MainActor
 func loadItems() async {
-    let id = await store.selectedId // ✅
+    let id = await store.selectedId // crosses into actor domain correctly
 }
 ```
 
@@ -265,7 +270,7 @@ The pattern applies everywhere: **make isolation explicit, then let the compiler
 
 ## `@preconcurrency` — What It Actually Does
 
-`@preconcurrency` is often misunderstood as a migration helper. What it actually does is simpler — and more dangerous:
+`@preconcurrency` gets treated as a migration helper. What it actually does is simpler — and more dangerous:
 
 **It tells the compiler to stop enforcing isolation for a piece of code.**
 
@@ -313,6 +318,8 @@ A Swift 6 migration is not complete when the project compiles and warnings are g
 ## The Right Fix for Each Case
 
 ### `await` — Standard boundary crossing
+
+This is the default fix for any call that crosses isolation domains in an async context. Prefer it over explicit hops wherever the call site allows — it's the least invasive correction and the one the compiler guides you toward.
 
 ```swift
 // Before — synchronous cross-boundary access
