@@ -220,7 +220,7 @@ Any code that crossed isolation boundaries without `await` was technically wrong
 
 ---
 
-## The Most Common Isolation Errors
+## The Core Anti-Pattern
 
 Rather than cataloguing every error pattern, here's the one real-world anti-pattern that covers most cases: **a ViewModel doing both networking and UI updates without clear isolation boundaries.**
 
@@ -435,6 +435,8 @@ No `@preconcurrency`. No suppressed warnings. The isolation contract is explicit
 ---
 
 ## The Mental Model That Scales
+
+That fix is repeatable. Here's the thinking that makes it automatic.
 
 For every call site, ask two questions. If you can't answer them quickly, your architecture is already unclear:
 
