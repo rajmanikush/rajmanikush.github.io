@@ -392,14 +392,7 @@ A green build is not a complete migration:
 
 **5. Treat isolation errors as design questions**
 
-```
-Isolation error appears
-        ↓
-Don't ask: "What annotation makes this compile?"
-Do ask:   "Who should own this state?"
-        ↓
-Answer that → the right annotation follows naturally
-```
+![Treat Isolation Errors as Design Questions — reframe from "what annotation makes this compile?" to "who should own this state?"](/images/isolation-error-design-question.png)
 
 ---
 
@@ -445,19 +438,7 @@ No `@preconcurrency`. No suppressed warnings. The isolation contract is explicit
 
 For every call site, ask two questions. If you can't answer them quickly, your architecture is already unclear:
 
-```
-What isolation domain am I in?
-What isolation domain is the callee in?
-        ↓
-Same domain?
-→ Synchronous call is fine ✅
-
-Different domain?
-→ Can I make the caller async? → use await
-→ Need to bridge a closure?   → Task { @MainActor in }
-→ Method needs no isolation?  → nonisolated
-→ Using @preconcurrency?      → you're hiding a bug, not fixing it
-```
+![The Mental Model That Scales — decision tree for navigating isolation boundaries: same domain allows synchronous calls, different domain requires await, Task @MainActor in, nonisolated, or flags @preconcurrency as hiding a bug](/images/mental-model-isolation-decision.png)
 
 > Swift 6 gives you enforcement. `@preconcurrency` lets you opt out. After that, the bugs are no longer accidental.
 
