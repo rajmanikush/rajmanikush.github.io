@@ -143,11 +143,7 @@ Most explanations frame actor isolation as a threading rule. That's incomplete.
 
 **Actor isolation is fundamentally about ownership of mutable state.**
 
-```
-@MainActor    → UI owns this state — always executes on main thread context
-Custom actor  → this component owns this state — serialized, any thread
-Nonisolated   → no ownership guarantee — cooperative thread pool
-```
+![Swift's Three Actor Isolation Domains — @MainActor owns UI state, Custom Actor owns component state, Nonisolated has no ownership guarantee. Crossing any boundary requires await.](/images/actor-isolation-domains.png)
 
 Crossing an isolation boundary isn't just "switching threads." It's crossing an ownership boundary — asking "who owns this mutation, and who owns consistency?" That's why Swift requires `await` — not for performance, but for correctness.
 
